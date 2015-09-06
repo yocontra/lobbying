@@ -12,6 +12,8 @@
   "author": "Contra",
   "license": "MIT",
   "dependencies": {
+    "lodash.foreach": "^3.0.3",
+    "lodash.template": "^3.6.2",
     "mechturk": "git://github.com/chbrown/mechturk.git",
     "taskrabbit": "0.0.1"
   }

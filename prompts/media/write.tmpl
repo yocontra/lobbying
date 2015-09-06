@@ -1,10 +1,10 @@
 Background: We are researching how people communicate with the media.
 
 Prompt:
-- Imagine you live in ${location}
+- Imagine you live in <%- location %>
 
-for problem in problems
-- Imagine ${problem}
+<% _.forEach(problems, function(p) { %> - <%- p %>\r\n<% }); %>
+
 
 Response:
 - Write an email convincing an imaginary journalist to cover this story.
