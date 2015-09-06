@@ -8,4 +8,4 @@ This repository contains:
 ## Government is Broken
 ### Lobbying
 ## Existing Solutions
-## This Solution (needs a cool name)
+## Project
