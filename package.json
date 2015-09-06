@@ -1,0 +1,18 @@
+{
+  "name": "lobbying",
+  "version": "1.0.0",
+  "description": "automated lobbying",
+  "main": "scripts/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lobbying"
+  ],
+  "author": "Contra",
+  "license": "MIT",
+  "dependencies": {
+    "mechturk": "git://github.com/chbrown/mechturk.git",
+    "taskrabbit": "0.0.1"
+  }
+}
