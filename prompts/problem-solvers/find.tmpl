@@ -1,10 +1,9 @@
 Background: We are researching how people communicate when they have problems.
 
 Prompt:
-- Imagine you live in <%- location %>
+- Imagine you live in <%= location %>
 
-<% _.forEach(problems, function(p) { %> - <%- p %>\r\n<% }); %>
-
+<% _.forEach(problems, function(p) { %> - <%= p %>\r\n<% }); %>
 
 Response:
 - Using the internet, make a list of the 5 most relevant government officials you would contact to send a complaint.
