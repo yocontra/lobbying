@@ -1,12 +1,12 @@
 Background: We are researching how people communicate when they have problems.
 
 Prompt:
-- Imagine you live in <%= location %>
-<% forEach(problems, function(p) { %>- Imagine <%= p %>
+- Imagine you live in <%= scenario.location %>
+<% forEach(scenario.problems, function(p) { %>- Imagine <%= p %>
 <% }); %>
 
 Response:
-- Write an email convincing an imaginary official to should fix this problem.
+- Write an email convincing an imaginary official to fix this problem.
 - Sign the email with the name "YYY TTT"
 - Address the email to "XXX ZZZ"
-- Use at least <%= wordCount %> words
+- Use at least <%= options.wordCount %> words
