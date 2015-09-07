@@ -11,6 +11,5 @@ async.auto({
   solvers: solvers.bind(null, config.scenario),
   media: media.bind(null, config.scenario)
 }, function(err, res){
-  if (err) return console.error(err);
-  console.log(res);
+  console.log(err, res);
 });

@@ -5,7 +5,7 @@ module.exports = function(cb) {
 
   function sendRequest(api){
     api.req('GetAccountBalance').then(function(res){
-      cb(null, res);
+      cb(null, parseFloat(res.GetAccountBalanceResult[0].AvailableBalance.Amount));
     }).catch(cb);
   }
 };

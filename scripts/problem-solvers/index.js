@@ -4,7 +4,7 @@ var write = require('./write');
 
 module.exports = function(scenario, cb) {
   async.parallel({
-    problemSolvers: find.bind(null, scenario),
-    complaints: write.bind(null, scenario)
+    people: find.bind(null, scenario),
+    letters: write.bind(null, scenario)
   }, cb);
 };
