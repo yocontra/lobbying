@@ -8,8 +8,9 @@ module.exports = function(opt, cb) {
       Title: opt.title,
       Description: opt.description,
       AssignmentDurationInSeconds: opt.duration,
-      LifetimeInSeconds: opt.lifetime
-    }
+      LifetimeInSeconds: opt.lifetime,
+      Reward: opt.reward
+    };
     api.req('CreateHIT', hit).then(function(res){
       cb(null, res);
     }).catch(cb);
