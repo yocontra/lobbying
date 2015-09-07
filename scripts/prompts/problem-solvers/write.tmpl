@@ -1,9 +1,9 @@
 Background: We are researching how people communicate when they have problems.
 
 Prompt:
-- Imagine you live in <%= location %> 
-
-<% _.forEach(problems, function(p) { %> - <%= p %>\r\n<% }); %>
+- Imagine you live in <%= location %>
+<% forEach(problems, function(p) { %>- Imagine <%= p %>
+<% }); %>
 
 Response:
 - Write an email convincing an imaginary official to should fix this problem.

@@ -1,8 +1,16 @@
 var rdir = require('require-dir');
+var async = require('async');
+var getBalance = require('./lib/mturk/getBalance');
 
-var solvers = rdir(__dirname + '/problem-solvers');
-var media = rdir(__dirname + '/media');
+var config = require('../config');
+var solvers = require('./problem-solvers');
+var media = require('./media');
 
-solvers.find(function(err, solvers){
-  console.log(err, solvers);
+async.auto({
+  getBalance: getBalance,
+  solvers: solvers.bind(null, config.scenario),
+  media: media.bind(null, config.scenario)
+}, function(err, res){
+  if (err) return console.error(err);
+  console.log(res);
 });

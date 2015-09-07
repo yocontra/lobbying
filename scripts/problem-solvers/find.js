@@ -1,7 +1,6 @@
-var fs = require('fs');
-var path = require('path');
-var _template = require('lodash.template');
-var config = require('../../config');
+var tmpl = require('../prompts')('problem-solvers/find.tmpl');
 
-var tmplPath = path.join(__dirname, '../prompts/problem-solvers/find.tmpl');
-var tmpl = _template(fs.readFileSync(tmplPath, 'utf8'));
+module.exports = function(scenario, cb) {
+  var prompt = tmpl(scenario);
+  cb();
+};
