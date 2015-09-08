@@ -12,6 +12,7 @@ module.exports = function(opt, cb) {
       Reward: opt.reward
     };
     api.req('CreateHIT', hit).then(function(res){
+      console.log(JSON.stringify(res));
       cb(null, res);
     }).catch(cb);
   }

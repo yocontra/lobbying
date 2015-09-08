@@ -1,15 +1,11 @@
-var tmpl = require('../prompts')('problem-solvers/find.tmpl');
 var findOrCreateHIT = require('../lib/findOrCreateHIT');
 
 module.exports = function(scenario, cb) {
   findOrCreateHIT({
-    type: 'people',
+    type: 'find',
     subject: 'problem-solvers',
     scenario: scenario,
-    prompt: tmpl({
-      scenario: scenario,
-      options: scenario['problem-solvers'].people
-    })
+    options: scenario['problem-solvers'].find
   }, function(err, hitID){
     cb(err, hitID);
   });

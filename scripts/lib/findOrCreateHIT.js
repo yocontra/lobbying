@@ -1,5 +1,6 @@
 var redis = require('./redis');
 var createHIT = require('./mturk/createHIT');
+var loadPrompt = require('../prompts');
 
 function getHITKey(opt) {
   return 'movement:'+opt.scenario.id+':hits:'+opt.type+':'+opt.subject;
@@ -7,9 +8,16 @@ function getHITKey(opt) {
 
 function makeHIT(opt, cb) {
   var hitKey = getHITKey(opt);
-  var timePerHit = opt.scenario[opt.subject][opt.type]['estimated-seconds-each'];
-  var reward = (timePerHit*2)/100;
+  var centsPerMinute = opt.scenario['cents-per-minute'];
+  var timePerHit = opt.options['estimated-seconds-each'];
+  var minsPerHit = timePerHit / 60;
+  var reward = minsPerHit * centsPerMinute;
 
+  var tmpl = loadPrompt(opt.subject+'/'+opt.type+'.tmpl');
+  var prompt = tmpl({
+    scenario: opt.scenario,
+    options: opt.options
+  });
   var hit = {
     title: 'Online Research',
     description: 'Find contact information for relevant people',
@@ -17,6 +25,7 @@ function makeHIT(opt, cb) {
     lifetime: opt.scenario.expiration,
     reward: reward
   };
+  console.log(hit);
   createHIT(hit, function(err, hitID){
     if (err) {
       return cb(err);
@@ -31,7 +40,7 @@ module.exports = function(opt, cb) {
   var hitKey = getHITKey(opt);
   redis.get(hitKey, function(err, hitID){
     if (err || hitID) {
-      return cb(err, hitID);
+      //return cb(err, hitID);
     }
     makeHIT(opt, cb);
   });
